@@ -26,15 +26,12 @@ class TestBasicFunctions(unittest.TestCase):
 
     def test_undefined_feature(self):
         user = self._add_user()
-        self.assertTrue(self.rollout.can(user, 'undefined_feature'))
-        self.rollout.default_undefined_feature = False
+        self.assertFalse(self.rollout.can(user, 'undefined_feature'))
 
-        self.assertFalse(self.rollout.can(user, 'undefined_feature_false'))
-
-    def test_undefined_feature_default_false(self):
+    def test_undefined_feature_default_true(self):
         user = self._add_user()
-        self.rollout.default_undefined_feature = False
-        self.assertFalse(self.rollout.can(user, 'undefined_feature_false'))
+        self.rollout.default_undefined_feature = True
+        self.assertTrue(self.rollout.can(user, 'undefined_feature_true'))
 
     def test_specify_storage(self):
         rollout = Rollout(feature_storage=MemoryFeatureStorage(), user_storage=MemoryUserStorage())
