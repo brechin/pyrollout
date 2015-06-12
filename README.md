@@ -1,6 +1,8 @@
 # pyrollout
 Python feature flagging
 
+[![Build Status](https://travis-ci.org/brechin/pyrollout.svg?branch=master)](https://travis-ci.org/brechin/pyrollout)
+
 Inspired by the [rollout](https://github.com/FetLife/rollout) Ruby gem by [James Golick](https://github.com/jamesgolick)
 and a Python port of it called
 [proclaim](https://github.com/asenchi/proclaim) by [Curt Micol](Curt Micol) which I found after reading 
