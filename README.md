@@ -8,3 +8,16 @@ and a Python port of it called
 by [Mathias Meyer](https://github.com/roidrage).
 
 Both of these use redis, and I don't like that requirement. I seek to support multiple storage/persistence mechanisms.
+
+Some feature ideas
+------------------
+
+* Flag by user 
+* Flag by group (including special groups _ALL_ and _NONE_)
+* Flag on percentage
+* Flag on user property
+* Flag on lambda passed the user object
+* Use memory
+* Use file
+* Use memcache, e.g. in Google App Engine
+* Use some other persistent database
