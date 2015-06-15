@@ -1,8 +1,8 @@
-from unittest.case import TestCase
+import unittest
 from pyrollout.storage.memory import MemoryUserStorage
 
 
-class TestMemoryStorage(TestCase):
+class TestMemoryStorage(unittest.TestCase):
     def setUp(self):
         self.user_storage = MemoryUserStorage()
 
@@ -21,7 +21,7 @@ class TestMemoryStorage(TestCase):
         users = [self._add_user() for _ in xrange(5)]
         print self.user_storage.user_data
         for u in users:
-            self.assertDictEqual(u, self.user_storage.user_data[u['id']])
+            self.assertEqual(u, self.user_storage.user_data[u['id']])
 
     def test_user_in_group(self):
         user = self._add_user(groups=['foo'])

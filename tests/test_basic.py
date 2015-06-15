@@ -15,7 +15,7 @@ class TestBasicFunctions(unittest.TestCase):
     # noinspection PyDefaultArgument
     def _add_user(self, user_id=[1], groups=None):
         user_id[0] += 1
-        self.assertIsInstance(self.rollout.user_storage, MemoryUserStorage)
+        self.assertTrue(isinstance(self.rollout.user_storage, MemoryUserStorage))
         new_user = {
             'id': user_id[0],
             'name': 'TestUser {ID}'.format(ID=user_id[0])
@@ -37,27 +37,27 @@ class TestBasicFunctions(unittest.TestCase):
         rollout = Rollout(feature_storage=MemoryFeatureStorage(), user_storage=MemoryUserStorage())
         rollout.add_feature(Feature('feature_for_all', groups=['ALL']))
         user = self._add_user()
-        self.assertIs(self.rollout.can(user, 'feature_for_all'), True)
+        self.assertTrue(self.rollout.can(user, 'feature_for_all') is True)
 
     def test_repr(self):
         feature_repr = repr(Feature('ff1', groups=['a'], users=[1], percentage=1))
-        self.assertIn("G:['a'] ", feature_repr)
-        self.assertIn("U:[1] ", feature_repr)
-        self.assertIn("P:1:False>", feature_repr)
+        self.assertTrue("G:['a'] " in feature_repr)
+        self.assertTrue("U:[1] " in feature_repr)
+        self.assertTrue("P:1:False>" in feature_repr)
 
     def test_all(self):
         user = self._add_user()
-        self.assertIs(self.rollout.can(user, 'feature_for_all'), True)
+        self.assertTrue(self.rollout.can(user, 'feature_for_all') is True)
 
     def test_none(self):
         user = self._add_user()
-        self.assertIs(self.rollout.can(user, 'feature_for_none'), False)
+        self.assertTrue(self.rollout.can(user, 'feature_for_none') is False)
 
     def test_some(self):
         user = self._add_user()
-        self.assertIs(self.rollout.can(user, 'feature_for_some'), False)
+        self.assertTrue(self.rollout.can(user, 'feature_for_some') is False)
         user = self._add_user(groups=['some'])
-        self.assertIs(self.rollout.can(user, 'feature_for_some'), True)
+        self.assertTrue(self.rollout.can(user, 'feature_for_some') is True)
 
     def test_percentage_20(self):
         users = [self._add_user() for _ in range(100)]
@@ -83,5 +83,5 @@ class TestBasicFunctions(unittest.TestCase):
         u = self._add_user()
         self.rollout.add_feature(Feature('myfeature', users=[u['id']]))
         self.rollout.add_feature(Feature('notmyfeature', users=[-1]))
-        self.assertIs(True, self.rollout.can(u, 'myfeature'))
-        self.assertIs(False, self.rollout.can(u, 'notmyfeature'))
+        self.assertTrue(self.rollout.can(u, 'myfeature'))
+        self.assertFalse(self.rollout.can(u, 'notmyfeature'))
