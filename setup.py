@@ -29,7 +29,7 @@ class PyTest(TestCommand):
 setup(
     name='pyrollout',
     version=pyrollout.__version__,
-    packages=['pyrollout', ],
+    packages=['pyrollout', 'pyrollout.feature', 'pyrollout.storage'],
     url='https://github.com/brechin/pyrollout',
     license='MIT',
     author='brechin',
