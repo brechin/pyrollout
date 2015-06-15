@@ -7,6 +7,7 @@ Documentation for the Code
     :undoc-members:
 
 .. automodule:: pyrollout.feature
+    :special-members: __init__
     :members:
     :undoc-members:
 
