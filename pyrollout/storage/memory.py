@@ -38,9 +38,3 @@ class MemoryUserStorage(UserStorageManager):
     def add_user(self, user):
         self.user_data[self.get_user_id(user)] = user
         return user
-
-    def is_in_group(self, user, group_or_groups):
-        if not isinstance(group_or_groups, (list, set)):
-            group_or_groups = [group_or_groups]
-        user_groups = self.get_groups(user)
-        return set(group_or_groups) & set(user_groups)
