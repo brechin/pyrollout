@@ -1,1 +1,1 @@
-from .base import FeatureStorageManager, UserStorageManager
+from pyrollout.storage.base import FeatureStorageManager, UserStorageManager
