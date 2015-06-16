@@ -1,4 +1,4 @@
-from pyrollout import Rollout
+from rollout import Rollout
 from . import feature
 from . import storage
 
