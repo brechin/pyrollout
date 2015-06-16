@@ -35,17 +35,14 @@ class Feature(object):
         """
         Nicer representation of this object with semi-readable configuration included.
         """
-        repr_string = '<Feature {NAME} - %s>'.format(NAME=self.name)
+        repr_string = '<Feature {} - %s>'.format(self.name)
         config_string = ''
         if len(self.users) > 0:
             config_string += 'U:%s ' % self.users
         if len(self.groups) > 0:
             config_string += 'G:%s ' % self.groups
         if self.percentage != 0:
-            config_string += 'P:{PCT}:{RAND}'.format(
-                PCT=self.percentage,
-                RAND=self.randomize
-            )
+            config_string += 'P:{0.percentage}:{0.randomize}'.format(self)
         return repr_string % config_string.strip()
 
     def can(self, user_storage, user):
