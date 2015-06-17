@@ -16,14 +16,14 @@ Usage
 
 To initialize pyrollout with the default in-memory feature & user storage:
 
-```
+```python
 import pyrollout
 rollout = pyrollout.Rollout()
 ```
 
 Now add features:
 
-```
+```python
 from pyrollout.feature import Feature
 # Open to all by using the special group 'ALL'
 rollout.add_feature(Feature('feature_for_all', groups=['ALL']))
@@ -37,7 +37,7 @@ rollout.add_feature(Feature('20pct', percentage=20))
 
 Check access to features:
 
-```
+```python
 def untested_feature(user):
     # Because this feature was not defined, access will always be denied (by default)
     if not rollout.can(user, 'use_untested_feature'):
