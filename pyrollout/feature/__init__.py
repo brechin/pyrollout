@@ -33,16 +33,33 @@ class Feature(object):
 
     def __repr__(self):
         """
-        Nicer representation of this object with semi-readable configuration included.
+        Build Feature representation.
+
+        :returns: str repr: ``eval``-ready string representation of feature.
+        """
+        s = []
+        if self.name:
+            s.append("'%s'" % self.name)
+        for p in ['groups', 'percentage', 'randomize', 'users']:
+            v = getattr(self, p)
+            s.append('%s=%s' % (p, repr(v)))
+        s = ', '.join(s)
+        return 'Feature(%s)' % s
+
+    def __str__(self):
+        """
+        Nicer representation of feature with semi-readable configuration.
+
+        :returns: str str: Human-readable string representation of feature.
         """
         repr_string = '<Feature {NAME} - %s>'.format(NAME=self.name)
         config_string = ''
         if len(self.users) > 0:
-            config_string += 'U:%s ' % self.users
+            config_string += 'Users:%s ' % self.users
         if len(self.groups) > 0:
-            config_string += 'G:%s ' % self.groups
+            config_string += 'Groups:%s ' % self.groups
         if self.percentage != 0:
-            config_string += 'P:{PCT}:{RAND}'.format(
+            config_string += 'Percent:{PCT}:{RAND}'.format(
                 PCT=self.percentage,
                 RAND=self.randomize
             )
