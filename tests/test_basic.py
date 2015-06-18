@@ -40,10 +40,21 @@ class TestBasicFunctions(unittest.TestCase):
         self.assertTrue(self.rollout.can(user, 'feature_for_all') is True)
 
     def test_repr(self):
-        feature_repr = repr(Feature('ff1', groups=['a'], users=[1], percentage=1))
-        self.assertTrue("G:['a'] " in feature_repr)
-        self.assertTrue("U:[1] " in feature_repr)
-        self.assertTrue("P:1:False>" in feature_repr)
+        feature = Feature('ff1', groups=['a'], users=[1], percentage=1)
+        feature_repr = repr(feature)
+        feature_compare = eval(feature_repr)
+        self.assertEqual(feature.name, feature_compare.name)
+        self.assertEqual(feature.groups, feature_compare.groups)
+        self.assertEqual(feature.percentage, feature_compare.percentage)
+        self.assertEqual(feature.randomize, feature_compare.randomize)
+        self.assertEqual(feature.users, feature_compare.users)
+
+    def test_str(self):
+        feature_str = str(Feature('ff1', groups=['a'], users=[1], percentage=1))
+        print feature_str
+        self.assertTrue("Groups:['a']" in feature_str)
+        self.assertTrue("Users:[1]" in feature_str)
+        self.assertTrue("Percent:1:False" in feature_str)
 
     def test_all(self):
         user = self._add_user()
