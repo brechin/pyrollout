@@ -1,6 +1,2 @@
-from pyrollout.rollout import Rollout
-from pyrollout import feature
-from pyrollout import storage
-
-__all__ = ['Rollout', 'feature', 'storage']
-__version__ = Rollout.__version__
+from rollout import Rollout
+__version__ = rollout.Rollout.__version__
