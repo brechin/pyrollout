@@ -1,4 +1,4 @@
-from . import FeatureStorageManager, UserStorageManager
+from pyrollout.storage import FeatureStorageManager, UserStorageManager
 
 
 class MemoryFeatureStorage(FeatureStorageManager):
