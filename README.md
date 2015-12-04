@@ -57,12 +57,8 @@ class FooHandler(BaseHandler):
 Some feature ideas
 ------------------
 
-* Flag by user
-* Flag by group (including special groups _ALL_ and _NONE_)
-* Flag on percentage
 * Flag on user property
 * Flag on lambda passed the user object
-* Use memory
 * Use file
 * Use memcache, e.g. in Google App Engine
 * Use some other persistent database
