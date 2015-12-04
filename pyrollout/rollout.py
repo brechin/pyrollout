@@ -1,10 +1,12 @@
 import logging
+# noinspection PyUnresolvedReferences
+import feature  #noqa
 
 logging.basicConfig(level=logging.DEBUG)
 
 
 class Rollout(object):
-    __version__ = '0.2'
+    __version__ = '0.3.1'
 
     def __init__(self, feature_storage=None, user_storage=None, undefined_feature_access=False):
         """
