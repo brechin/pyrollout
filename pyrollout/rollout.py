@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 
 class Rollout(object):
-    __version__ = '0.3.4'
+    __version__ = '0.3.5'
 
     def __init__(self, feature_storage=None, user_storage=None, undefined_feature_access=False):
         """

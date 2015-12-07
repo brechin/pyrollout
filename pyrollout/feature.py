@@ -1,3 +1,5 @@
+import zlib
+
 class Feature(object):
     def __init__(self, name, groups=None, percentage=None, randomize=False, users=None):
         """
@@ -129,6 +131,6 @@ class Feature(object):
         """
         user_id = int(user_storage.get_user_id(user))
         if self.randomize:
-            user_id += hash(self.name)
+            user_id += zlib.crc32(self.name)
 
         return user_id % 100 < self.percentage
