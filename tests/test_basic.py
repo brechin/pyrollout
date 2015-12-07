@@ -13,11 +13,15 @@ class TestBasicFunctions(unittest.TestCase):
         self.rollout.add_feature(Feature('feature_for_some', groups=['some']))
 
     # noinspection PyDefaultArgument
-    def _add_user(self, user_id=[1], groups=None):
+    def _add_user(self, user_id=[1], groups=None, string_id=False):
         user_id[0] += 1
+        if string_id:
+          uid = str(user_id[0])
+        else:
+          uid = user_id[0]
         self.assertTrue(isinstance(self.rollout.user_storage, MemoryUserStorage))
         new_user = {
-            'id': user_id[0],
+            'id': uid,
             'name': 'TestUser {ID}'.format(ID=user_id[0])
         }
         if groups is not None:
@@ -69,6 +73,12 @@ class TestBasicFunctions(unittest.TestCase):
         self.assertTrue(self.rollout.can(user, 'feature_for_some') is False)
         user = self._add_user(groups=['some'])
         self.assertTrue(self.rollout.can(user, 'feature_for_some') is True)
+
+    def test_percentage_string_user_id(self):
+        users = [self._add_user(string_id=True) for _ in range(100)]
+        self.assertIsInstance(users[0].get('id'), basestring)
+        self.rollout.add_feature(Feature('20pct', percentage=20))
+        self.assertEquals(20, [self.rollout.can(u, '20pct') for u in users].count(True))
 
     def test_percentage_20(self):
         users = [self._add_user() for _ in range(100)]
