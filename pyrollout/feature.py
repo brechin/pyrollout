@@ -127,8 +127,8 @@ class Feature(object):
         :return: Can user access feature
         :rtype: bool
         """
-        user_id = user_storage.get_user_id(user)
+        user_id = int(user_storage.get_user_id(user))
         if self.randomize:
             user_id += hash(self.name)
 
-        return int(user_id) % 100 < self.percentage
+        return user_id % 100 < self.percentage

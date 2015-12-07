@@ -100,6 +100,12 @@ class TestBasicFunctions(unittest.TestCase):
         self.rollout.add_feature(Feature('pctx', percentage=10, randomize=True))
         self.assertEquals(10, [self.rollout.can(u, 'pctx') for u in users].count(True))
 
+    def test_pct_string_user_id_rand(self):
+        users = [self._add_user(string_id=True) for _ in range(100)]
+        self.rollout.add_feature(Feature('pctx', percentage=10, randomize=True))
+        self.assertEquals(10, [self.rollout.can(u, 'pctx') for u in users].count(True))
+
+
     def test_user_feature(self):
         u = self._add_user()
         self.rollout.add_feature(Feature('myfeature', users=[u['id']]))
