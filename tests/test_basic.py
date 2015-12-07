@@ -76,7 +76,7 @@ class TestBasicFunctions(unittest.TestCase):
 
     def test_percentage_string_user_id(self):
         users = [self._add_user(string_id=True) for _ in range(100)]
-        self.assertIsInstance(users[0].get('id'), basestring)
+        self.assertTrue(isinstance(users[0].get('id'), basestring))
         self.rollout.add_feature(Feature('20pct', percentage=20))
         self.assertEquals(20, [self.rollout.can(u, '20pct') for u in users].count(True))
 
