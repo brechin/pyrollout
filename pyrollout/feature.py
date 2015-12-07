@@ -131,4 +131,4 @@ class Feature(object):
         if self.randomize:
             user_id += hash(self.name)
 
-        return user_id % 100 < self.percentage
+        return int(user_id) % 100 < self.percentage
