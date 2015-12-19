@@ -2,6 +2,9 @@
 Python feature flagging
 
 [![Build Status](https://travis-ci.org/brechin/pyrollout.svg?branch=master)](https://travis-ci.org/brechin/pyrollout)
+[![PyPI Version](https://img.shields.io/pypi/v/pyrollout.svg?style=flat-square)](https://pypi.python.org/pypi/gcloud_requests/)
+[![PyPI Popularity](https://img.shields.io/pypi/dm/pyrollout.svg?style=flat-square)](https://pypi.python.org/pypi/gcloud_requests/)
+[![Code Climate](https://codeclimate.com/github/brechin/pyrollout/badges/gpa.svg)](https://codeclimate.com/github/brechin/pyrollout)
 
 Inspired by the [rollout](https://github.com/FetLife/rollout) Ruby gem by [James Golick](https://github.com/jamesgolick)
 and a Python port of it called
