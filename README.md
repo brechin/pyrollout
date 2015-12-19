@@ -5,6 +5,7 @@ Python feature flagging
 [![PyPI Version](https://img.shields.io/pypi/v/pyrollout.svg?style=flat-square)](https://pypi.python.org/pypi/gcloud_requests/)
 [![PyPI Popularity](https://img.shields.io/pypi/dm/pyrollout.svg?style=flat-square)](https://pypi.python.org/pypi/gcloud_requests/)
 [![Code Climate](https://codeclimate.com/github/brechin/pyrollout/badges/gpa.svg)](https://codeclimate.com/github/brechin/pyrollout)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 Inspired by the [rollout](https://github.com/FetLife/rollout) Ruby gem by [James Golick](https://github.com/jamesgolick)
 and a Python port of it called
