@@ -3,7 +3,7 @@ Python feature flagging
 
 [![Build Status](https://travis-ci.org/brechin/pyrollout.svg?branch=master)](https://travis-ci.org/brechin/pyrollout)
 [![PyPI Version](https://img.shields.io/pypi/v/pyrollout.svg?style=flat-square)](https://pypi.python.org/pypi/pyrollout/)
-[![PyPI Popularity](https://img.shields.io/pypi/dm/pyrollout.svg?style=flat-square)](https://pypi.python.org/pypi/gcloud_requests/)
+[![PyPI Popularity](https://img.shields.io/pypi/dm/pyrollout.svg?style=flat-square)](https://pypi.python.org/pypi/pyrollout/)
 [![Code Climate](https://codeclimate.com/github/brechin/pyrollout/badges/gpa.svg)](https://codeclimate.com/github/brechin/pyrollout)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
