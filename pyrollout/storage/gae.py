@@ -5,11 +5,11 @@ from pyrollout.storage import FeatureStorageManager, UserStorageManager
 
 
 class PyRolloutFeature(ndb.Model):
-    name = ndb.StringField(required=True)
-    groups = ndb.StringField(repeated=True)
-    users = ndb.StringField(repeated=True)
-    percentage = ndb.IntegerField()
-    randomize = ndb.BooleanField(default=False)
+    name = ndb.StringProperty(required=True)
+    groups = ndb.StringProperty(repeated=True)
+    users = ndb.GenericProperty(repeated=True)
+    percentage = ndb.IntegerProperty()
+    randomize = ndb.BooleanProperty(default=False)
 
     @classmethod
     def get_by_name(cls, name):
